@@ -1,0 +1,14 @@
+{
+  "name": "fram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/mb85.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "rasbus": "file:../rasbus"
+  },
+  "author": "johntalton@gmail.com",
+  "license": "MIT"
+}
