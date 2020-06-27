@@ -1,5 +1,8 @@
 "use strict";
 
+// default i2c address
+const DEFAULT_MB85_ADDRESS = 0x50;
+
 // datasheet max w/r times/byte
 const endurance = Math.pow(10, 12);
 
@@ -104,4 +107,7 @@ class Util {
   }
 }
 
-module.exports.MB85RC = MB85RC;
+module.exports = {
+  MB85RC,
+  DEFAULT_MB85_ADDRESS
+};
