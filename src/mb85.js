@@ -18,34 +18,22 @@ const D_1M =   0x7;
 // D_4M
 
 /**
- * Fujitsu MB85 (i2c/spi) abstraction
- * (currently only supports i2c :P)
- */
-class MB85 {
-  static frame(bus, density) { return MB85RC.fram(bus, density); }
-  static detect(bus) { return MB85RC.detect(bus); }
-}
-
-/**
  * Fujitsu MB85RC (i2c) managment layer
  */
 class MB85RC {
-  static fram(bus, density) {
+  static from(bus, density) {
     return new Promise((resolve, reject) => {
       resolve(new MB85RC(bus, density, 0));
     });
   }
 
-  static detect(bus) {
-    return bus.deviceId().then((id) => {
-	if(id.manufacturer !== FUJITSU_I2C_MANUFACTURER_ID) { throw Error('Manufacturer missmatch'); }
+  static fromId(bus, id) {
+    if(id.manufacturer !== FUJITSU_I2C_MANUFACTURER_ID) { throw new Error('Manufacturer missmatch'); }
+    // prod is split into 4bit Density and Proprietary
+    const density = id.product >> 8 & 0x0F;
+    const proprietary = id.product & 0xFF;
 
-        // prod is split into 4bit Density and Proprietary
-        const density = id.product >> 8 & 0x0F;
-        const proprietary = id.product & 0xFF;
-
-        return new MB85RC(bus, density, proprietary);
-    });
+    return Promise.resolve(new MB85RC(bus, density, proprietary));
   }
 
   constructor(bus, density, features) {
@@ -116,5 +104,4 @@ class Util {
   }
 }
 
-module.exports.MB85 = MB85;
 module.exports.MB85RC = MB85RC;

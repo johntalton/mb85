@@ -1,6 +1,7 @@
 "use strict";
 
-const rasbus = require('rasbus');
+const i2c = require('i2c-bus');
+const { I2CAddressedBus } = require('@johntalton/and-other-delights');
 const { MB85, MB85RC } = require('../');
 
 /*
@@ -19,11 +20,17 @@ class Framton {
 }
 */
 
-rasbus.byname('i2c-bus').init(42, 0x50).then(bus => {
-  return MB85RC.detect(bus).then(fram => {
+const busNumber = 1;
+const busAddress = 0x50;
+
+i2c.openPromisified(busNumber)
+  .then(bus => bus.deviceId(busAddress).then(id => ({ id, bus })))
+  // .then(id => { console.log('deviceId', id); return id; })
+  .then(({ id, bus }) => ({ id, bus: new I2CAddressedBus(bus, busAddress) }))
+  .then(({ id, bus }) => MB85RC.fromId(bus, id))
+  .then(fram => {
+    //console.log(fram);
     console.log('Fujitsu FRAM MB85', fram.busHuman, fram.densityHuman, fram.featuresHuman);
-  });
-})
 
 /*
   const addr = 42;
@@ -53,6 +60,6 @@ rasbus.byname('i2c-bus').init(42, 0x50).then(bus => {
       //console.log(index, data);
       console.log(JSON.parse(data));
     })
-
-})*/
-.catch(e => { console.log('top-level error', e); });
+*/
+  })
+  .catch(e => { console.log('top-level error', e); });

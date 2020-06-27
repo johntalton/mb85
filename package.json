@@ -1,14 +1,25 @@
 {
   "name": "fram",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "src/mb85.js",
+  "type": "commonjs",
+  "exports": {
+    "import": "./src/mb85.js",
+    "require": "./src/mb85.js"
+  },
+  "files": [
+    "src/**/*.js"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "rasbus": "johntalton/rasbus@lastMultiplex"
+    "@johntalton/and-other-delights": "^2.X.X"
   },
   "author": "johntalton@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "i2c-bus": "^5.2.0"
+  }
 }
