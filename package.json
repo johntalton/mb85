@@ -1,5 +1,6 @@
 {
-  "name": "fram",
+  "name": "@johntalton/mb85",
+  "private": true,
   "version": "2.0.0",
   "description": "",
   "main": "src/mb85.js",
@@ -12,7 +13,7 @@
     "src/**/*.js"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node examples/test"
   },
   "dependencies": {
     "@johntalton/and-other-delights": "^2.X.X"
