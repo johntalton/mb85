@@ -1,5 +1,3 @@
-"use strict";
-
 // default i2c address
 const DEFAULT_MB85_ADDRESS = 0x50;
 
