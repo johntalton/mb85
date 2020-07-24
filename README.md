@@ -8,6 +8,7 @@ Simple wrapper around I²C (i2c-bus) implementation to provide read / write capa
 ![GitHub](https://img.shields.io/github/license/johntalton/mb85)
 [![Downloads Per Month](https://img.shields.io/npm/dm/@johntalton/mb85.svg)](https://www.npmjs.com/package/@johntalton/mb85)
 ![GitHub last commit](https://img.shields.io/github/last-commit/johntalton/mb85)
+[![Package Quality](https://npm.packagequality.com/shield/%40johntalton%2Fmb85.svg)](https://packagequality.com/#?package=@johntalton/mb85)
 
 ## API
 Construction is achived via the statis `from` and `fromId` methods of `MB85RC`. 
