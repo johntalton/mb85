@@ -32,7 +32,7 @@
     }
   },
   "dependencies": {
-    "@johntalton/and-other-delights": "^3.0.2"
+    "@johntalton/and-other-delights": "^8.5.3"
   },
   "devDependencies": {
     "eslint": "^8.30.0",
