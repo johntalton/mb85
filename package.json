@@ -1,41 +1,17 @@
 {
   "name": "@johntalton/mb85",
-  "version": "2.0.5",
+  "version": "3.0.0",
   "description": "",
   "author": "johntalton@gmail.com",
   "license": "MIT",
-  "main": "src/mb85.js",
-  "type": "commonjs",
+  "type": "module",
   "exports": {
-    "import": "./src/mb85.js",
-    "require": "./src/mb85.js"
+    ".": "./src/mb5.js"
   },
   "files": [
     "src/**/*.js"
   ],
-  "scripts": {
-    "test": "node examples/test",
-    "lint": "eslint ."
-  },
-  "eslintConfig": {
-    "root": true,
-  "extends": [
-    "eslint:recommended"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 2020,
-      "sourceType": "module"
-    },
-    "env": {
-      "es6": true,
-      "mocha": true
-    }
-  },
-  "dependencies": {
-    "@johntalton/and-other-delights": "^3.0.2"
-  },
   "devDependencies": {
-    "eslint": "^8.30.0",
-    "i2c-bus": "^5.2.0"
+    "@johntalton/and-other-delights": "^8.5.4"
   }
 }
