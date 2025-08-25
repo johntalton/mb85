@@ -1,6 +1,6 @@
 # Fujitsu MB85 FRAM
 
-Simple wrapper around I²C (i2c-bus) implementation to provide read / write capability.
+I²C implementation over [`I2CBus`](https://github.com/johntalton/and-other-delights) to provide read / write capability.
 
 [![npm Version](https://img.shields.io/npm/v/@johntalton/mb85.svg)](https://www.npmjs.com/package/@johntalton/mb85)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/johntalton/mb85)
@@ -8,23 +8,28 @@ Simple wrapper around I²C (i2c-bus) implementation to provide read / write capa
 ![CodeQL](https://github.com/johntalton/mb85/workflows/CodeQL/badge.svg)
 
 
-
 ## API
 
-#### `size`
+### `async read(offset, length, into?)`
+Direct access to read at an offset for desired length.
+An `into` buffer may be provided as the target or the read, otherwise a new `ArrayBuffer` will be returned
+
+### `async write(offset, buffer)`
+Direct write to an offset given a buffer of desired length to be written.
+
+### `size`
 The density expressed as numeric bytes value.
 
-#### `densityHuman`
-The density expressed as product code string (example: '1M', '512K', ect)
+### `densityHuman`
+The density expressed as product code string (example: `'1M'`, `'512K'`, etc)
 
-#### `busHuman`
-The bus as product code string ('RC' for I²C)
+### `busHuman`
+The bus as product code string (`'RC'` for I²C)
 
-#### `async read(offset, length)`
-Direct access to read at an offset for desired length.
+### `featuresHuman`
+Returns the feature string (`'V'`, `'T'`, etc)
 
-#### `async write(offset, buffer)`
-Direct write to an offset given a buffer of desired length to be written.
+## Example
 
 ```javascript
 import { I2CAddressedBus } = from '@johntalton/and-other-delights'
