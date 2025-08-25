@@ -32,10 +32,13 @@ import { MB85RC, DEFAULT_MB85_ADDRESS } from '@johntalton/mb85'
 
 const bus = /* I2CBus implementation */
 const ab = new I2CAddressedBus(bus, DEFAULT_MB85_ADDRESS)
-const fram = MB85RC.fromId(ab, DENSITY_)
+const fram = new MB85RC(ab, DENSITY_256K)
 
 console.log('Fujitsu FRAM MB85', fram.busHuman, fram.densityHuman, fram.featuresHuman)
 // Fujitsu FRAM MB85 RC 256K V
+
+const byteLength = 64
+const buffer = await fram.read(0, byteLength)
 
 ```
 
