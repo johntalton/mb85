@@ -4,7 +4,7 @@ Simple wrapper around I²C (i2c-bus) implementation to provide read / write capa
 
 [![npm Version](https://img.shields.io/npm/v/@johntalton/mb85.svg)](https://www.npmjs.com/package/@johntalton/mb85)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/johntalton/mb85)
-![CI](https://github.com/johntalton/mb85/workflows/CI/badge.svg)
+[![CI](https://github.com/johntalton/mb85/actions/workflows/CI.yaml/badge.svg)](https://github.com/johntalton/mb85/actions/workflows/CI.yaml)
 ![CodeQL](https://github.com/johntalton/mb85/workflows/CodeQL/badge.svg)
 
 
